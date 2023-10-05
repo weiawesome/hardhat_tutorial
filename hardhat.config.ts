@@ -8,7 +8,7 @@ const config: HardhatUserConfig = {
     ganache: {
       url: "http://localhost:7545",
     },
-  },
+  }
 };
 
 export default config;
