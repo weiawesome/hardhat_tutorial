@@ -25,32 +25,36 @@ npx hardhat run scripts/deploy.ts
 ```
 
 ## Contract - Election
-### Main function
-> Deployer can hold an election set the basic asset, vote time and vote tallying time.
- 
-* **Before the voting**
-
-> Anyone can register to be a candidate and need to pay margin deposit.
->
-> Candidate can edit the information(name, manifesto...).
-
-* **In the voting**
-
-> Anyone can vote a candidate onetime.
->
-> Anyone's vote is all equal.
-
-* **In the vote tallying**
-
-> It will reveal the result of election.
->
-> If the candidate's vote number is higher than mini vote number, the contract will return their margin deposit. 
-
-* **Any Time**
-
-> Anyone can get all the candidates' information(address, name, manifesto...).
+### Main Function
+> The deployer can initiate an election, setting the fundamental parameters such as the basic asset, the duration for voting, and the time for tallying the votes. 
 > 
-> Can search by name, address to get specific candidate's information.
+> Additionally, the deployer can define a minimum vote threshold, and candidates need to accumulate votes exceeding this threshold to have their margin deposit refunded.
+
+* **Before the Voting**
+
+> Any individual can register as a candidate, which requires a margin deposit. Candidates also have the ability to modify their information, including their name and manifesto.
+
+* **During the Voting**
+
+> Any participant can cast one vote for a candidate, and all votes carry equal weight.
+
+* **Vote Tallying**
+
+> The election results will be revealed after the voting period. 
+> 
+> If a candidate accumulates a vote count exceeding the set minimum threshold, the contract will refund their margin deposit.
+
+* **Administrative Control**
+
+> The contract includes an administrative feature where a designated admin, in addition to the deployer, can manage the contract. 
+> 
+> The admin has the authority to pause the contract's functionality. This feature is crucial in cases where potential vulnerabilities or issues in the contract are identified, allowing for the contract's operations to be halted to prevent further complications.
+
+* **Anytime Access**
+
+> Any user can access the information of all the candidates, including their addresses, names, and manifestos. 
+> 
+> It is also possible to search for specific candidate information by name or address.
 
 ### How to deploy
 ```shell
@@ -58,30 +62,31 @@ npx hardhat run scripts/election/deploy.ts
 ```
 
 ## Contract - Crowdfunding
-### Main function
-> Deployer can build a crowdfunding platform, proposer can propose and the contract can build a new contract for the proposal.
-
-* **Platform** 
-
-> The proposer can propose to the platform that will make a contract for the proposal.
+### Main Function
+> The deployer has the capability to establish a crowdfunding platform. 
 > 
-> The proposer can activate the contract by the platform.
-> 
-> The proposer can update the personal information for sponsor to view it.
+> Proposers can submit proposals, and the contract will create a new contract for each proposal.
 
-* **Proposer**
+* **Platform**
 
-> Proposer can edit its contract's information.
-> 
-> Contract will deal with the asset auto by its type and the rule.
+> Proposers can submit their proposals to the platform, which will generate a dedicated contract for each proposal.
+>
+> Proposers can activate the contract through the platform.
+>
+> Proposers can also update their personal information for sponsors to view.
 
-* **Sponsor**
+* **Proposers**
 
-> Sponsor can view the contract(proposal) information and back the project.
+> Proposers have the ability to modify the details of their contracts.
+>
+> The contract will autonomously manage assets based on their type and the predefined rules.
+
+* **Sponsors**
+
+> Sponsors can access and review the contract (proposal) information and support the project.
 
 ### How to deploy
 ```shell
 npx hardhat run scripts/crowdFunding/deploy.ts
 ```
-
 
