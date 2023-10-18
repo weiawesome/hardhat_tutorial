@@ -1,10 +1,11 @@
 # HardHat Tutorial
 
-## What is Smart contract ?
+## What is Smart contract
 A smart contract is a self-executing digital contract with automated terms and actions, often used in blockchain technology.
 
-## How to install ?
+## How to download
 ```shell
+# Ensure have installed git
 git clone https://github.com/weiawesome/hardhat_tutorial.git
 ```
 
